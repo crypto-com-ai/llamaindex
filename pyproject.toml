@@ -1,0 +1,50 @@
+[tool.poetry]
+authors = ["macong-cdc <cong.ma@crypto.com>"]
+description = ""
+name = "hackathon-backend"
+readme = "README.md"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+openai = "^1.55.1"
+python = "3.11.1"
+llama-hub = "^0.0.79.post1"
+unstructured = "^0.16.6"
+streamlit = "^1.40.2"
+python-dotenv = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+flake8 = "^7.1.1"
+isort = "^5.13.2"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
+
+[tool.black]
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
+include = '\.pyi?$'
+line-length = 99
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
